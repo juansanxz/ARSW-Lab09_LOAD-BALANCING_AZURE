@@ -15,13 +15,13 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
 
 ### Parte 1 - Escalabilidad vertical
 
-1. Diríjase a el [Portal de Azure](https://portal.azure.com/) y a continuación cree una maquina virtual con las características básicas descritas en la imágen 1 y que corresponden a las siguientes:
-    * Resource Group = SCALABILITY_LAB
-    * Virtual machine name = VERTICAL-SCALABILITY
-    * Image = Ubuntu Server 
-    * Size = Standard B1ls
-    * Username = scalability_lab
-    * SSH publi key = Su llave ssh publica
+1. __Diríjase a el [Portal de Azure](https://portal.azure.com/) y a continuación cree una maquina virtual con las características básicas descritas en la imágen 1 y que corresponden a las siguientes:__
+    * __Resource Group = SCALABILITY_LAB__
+    * __Virtual machine name = VERTICAL-SCALABILITY__
+    * __Image = Ubuntu Server__
+    * __Size = Standard B1ls__
+    * __Username = scalability_lab__
+    * __SSH publi key = Su llave ssh publica__
 
 ![Imágen 1](images/part1/part1-vm-basic-config.png)    
 
@@ -30,7 +30,7 @@ Se crea la máquina virtual con las características indicadas.
 
 
 
-2. Para conectarse a la VM use el siguiente comando, donde las `x` las debe remplazar por la IP de su propia VM (Revise la sección "Connect" de la virtual machine creada para tener una guía más detallada).
+2. __Para conectarse a la VM use el siguiente comando, donde las `x` las debe remplazar por la IP de su propia VM (Revise la sección "Connect" de la virtual machine creada para tener una guía más detallada).__
 
     `ssh scalability_lab@xxx.xxx.xxx.xxx`
 
@@ -39,7 +39,7 @@ Se crea la máquina virtual con las características indicadas.
 
 
 
-4. Instale node, para ello siga la sección *Installing Node.js and npm using NVM* que encontrará en este [enlace](https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/).    
+3. __Instale node, para ello siga la sección *Installing Node.js and npm using NVM* que encontrará en este [enlace](https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/).__    
 
    Realizamos la descarga con el comando indicado.
    ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/08b2a2f4-0f74-439e-b10f-79229085e3fa)
@@ -50,7 +50,7 @@ Se crea la máquina virtual con las características indicadas.
    Finalmente, instalamos node:
    ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/a86af239-7381-4e6e-a184-d6116917d75a)  
 
-   Verficamos la versión de node instalada:
+   Verficamos la versión de node instalada:  
    ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/c33e4a1b-9570-49b7-a3a1-721b8544cd31)
 
    Además. se instalan dos versiones de node:
@@ -60,13 +60,7 @@ Se crea la máquina virtual con las características indicadas.
    Listamos las versiones de Node.Js para ver cual versión está en uso:
    ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/600131b2-37a4-446f-a8eb-c2ee43d81a1d)
 
-   
-
-
-
-   
-
-6. Para instalar la aplicación adjunta al Laboratorio, suba la carpeta `FibonacciApp` a un repositorio al cual tenga acceso y ejecute estos comandos dentro de la VM:
+4. __Para instalar la aplicación adjunta al Laboratorio, suba la carpeta `FibonacciApp` a un repositorio al cual tenga acceso y ejecute estos comandos dentro de la VM:__
 
     `git clone <your_repo>`
 
@@ -74,29 +68,67 @@ Se crea la máquina virtual con las características indicadas.
 
     `npm install`
 
-7. Para ejecutar la aplicación puede usar el comando `npm FibinacciApp.js`, sin embargo una vez pierda la conexión ssh la aplicación dejará de funcionar. Para evitar ese compartamiento usaremos *forever*. Ejecute los siguientes comando dentro de la VM.
+   Clonamos el repositorio e instalamos lo indicado:
+   ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/04c7f8cd-e213-4206-81e2-e4c73e37c712)  
+
+
+5. __Para ejecutar la aplicación puede usar el comando `npm FibinacciApp.js`, sin embargo una vez pierda la conexión ssh la aplicación dejará de funcionar. Para evitar ese compartamiento usaremos *forever*. Ejecute los siguientes comando dentro de la VM.__
 
     ` node FibonacciApp.js`
 
-8. Antes de verificar si el endpoint funciona, en Azure vaya a la sección de *Networking* y cree una *Inbound port rule* tal como se muestra en la imágen. Para verificar que la aplicación funciona, use un browser y user el endpoint `http://xxx.xxx.xxx.xxx:3000/fibonacci/6`. La respuesta debe ser `The answer is 8`.
+   Ejecutamos la aplicación:
+   ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/cb865c58-15da-4d74-b2e1-4b592cf7ce3d)  
 
-![](images/part1/part1-vm-3000InboudRule.png)
 
-7. La función que calcula en enésimo número de la secuencia de Fibonacci está muy mal construido y consume bastante CPU para obtener la respuesta. Usando la consola del Browser documente los tiempos de respuesta para dicho endpoint usando los siguintes valores:
-    * 1000000
-    * 1010000
-    * 1020000
-    * 1030000
-    * 1040000
-    * 1050000
-    * 1060000
-    * 1070000
-    * 1080000
-    * 1090000    
+6. __Antes de verificar si el endpoint funciona, en Azure vaya a la sección de *Networking* y cree una *Inbound port rule* tal como se muestra en la imágen. Para verificar que la aplicación funciona, use un browser y user el endpoint `http://xxx.xxx.xxx.xxx:3000/fibonacci/6`. La respuesta debe ser `The answer is 8`.__
 
-8. Dírijase ahora a Azure y verifique el consumo de CPU para la VM. (Los resultados pueden tardar 5 minutos en aparecer).
+![](images/part1/part1-vm-3000InboudRule.png)  
 
-![Imágen 2](images/part1/part1-vm-cpu.png)
+Se hace la configuración de la regla:  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/762727ba-af71-4703-92b6-fe23d7f76ec5)  
+
+Se prueba el funcinamiento usando el endpoint, hallando el fibonacci de 6:    
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/c6b0b199-2612-4c7c-ae58-f9817846bdf8)  
+
+7. __La función que calcula en enésimo número de la secuencia de Fibonacci está muy mal construido y consume bastante CPU para obtener la respuesta. Usando la consola del Browser documente los tiempos de respuesta para dicho endpoint usando los siguintes valores:__  
+    
+    A continuación, se muestran los tiempos de respuesta:  
+    * 1000000  
+      ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/3eae1c19-6dca-4b6d-bd37-f41a7fd3a348)  
+
+    * 1010000  
+      ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/81a0a126-8a02-488c-ae2f-80f926a9aa60)  
+
+    * 1020000    
+      ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/fe812c9f-b419-415e-aac1-523a51d37345)
+
+    * 1030000  
+      ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/e830fb5d-7ee3-41db-84cd-ea61bf5d1ac1)     
+
+    * 1040000  
+      ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/fcfdec29-8135-4b4d-92f5-1b8786fab671)  
+
+    * 1050000  
+      ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/52f5c88f-3dca-4acc-acfd-8cd63e50d6e1)  
+
+    * 1060000  
+      ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/68d44f0d-8bfe-4449-8c1d-256a51ec5047)
+      
+    * 1070000  
+      ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/570b6fdf-7ff0-4ff0-a4d7-f2c7c7ecf732)  
+
+    * 1080000  
+      ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/6784c27e-7fc2-494a-bec8-145dca890131)  
+
+    * 1090000  
+      ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/a50ec213-1f23-4879-abab-a4af046693f6)  
+   
+
+8. __Dírijase ahora a Azure y verifique el consumo de CPU para la VM. (Los resultados pueden tardar 5 minutos en aparecer).__
+
+![Imágen 2](images/part1/part1-vm-cpu.png)  
+Desde Azure, observamos el consumo de CPU de la máquina virtual en la última hora:  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/31729807-f705-45ee-9faa-842d0516acaa)
 
 9. Ahora usaremos Postman para simular una carga concurrente a nuestro sistema. Siga estos pasos.
     * Instale newman con el comando `npm install newman -g`. Para conocer más de Newman consulte el siguiente [enlace](https://learning.getpostman.com/docs/postman/collection-runs/command-line-integration-with-newman/).
@@ -109,9 +141,16 @@ Se crea la máquina virtual con las características indicadas.
     newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALANCING_AZURE].postman_environment.json -n 10
     ```
 
-10. La cantidad de CPU consumida es bastante grande y un conjunto considerable de peticiones concurrentes pueden hacer fallar nuestro servicio. Para solucionarlo usaremos una estrategia de Escalamiento Vertical. En Azure diríjase a la sección *size* y a continuación seleccione el tamaño `B2ms`.
+    Instalamos newman en la VM:
+   ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/7c62f51b-59e8-4942-8a6a-9825f1918223)
+   
 
-![Imágen 3](images/part1/part1-vm-resize.png)
+
+11. La cantidad de CPU consumida es bastante grande y un conjunto considerable de peticiones concurrentes pueden hacer fallar nuestro servicio. Para solucionarlo usaremos una estrategia de Escalamiento Vertical. En Azure diríjase a la sección *size* y a continuación seleccione el tamaño `B2ms`.
+
+![Imágen 3](images/part1/part1-vm-resize.png)  
+
+
 
 11. Una vez el cambio se vea reflejado, repita el paso 7, 8 y 9.
 12. Evalue el escenario de calidad asociado al requerimiento no funcional de escalabilidad y concluya si usando este modelo de escalabilidad logramos cumplirlo.
