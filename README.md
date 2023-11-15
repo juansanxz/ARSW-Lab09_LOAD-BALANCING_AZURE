@@ -140,20 +140,74 @@ Desde Azure, observamos el consumo de CPU de la máquina virtual en la última h
     newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALANCING_AZURE].postman_environment.json -n 10 &
     newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALANCING_AZURE].postman_environment.json -n 10
     ```
+    Antes de instalar newman, instalamos y cambiamos la versión de node a 18.18.2:  
+   <img width="570" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/b1a7056b-d000-4b5f-af68-0678f6453abf">
+
+   Y la configuramos para que sea la que se use por defecto:
+   <img width="569" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/545ac520-6530-4292-897e-156203231ec3">
 
     Instalamos newman en la VM:
    ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/7c62f51b-59e8-4942-8a6a-9825f1918223)
-   
 
+   Ejecutamos el comando dado, y se empieza a simular la carga concurrente al sistema, obteniendo los siguientes resultados:
+   <img width="1440" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/d55e2b5f-ba6b-4819-bbb9-c514eda7e5ae">
+   <img width="618" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/93c4bab4-d33e-4fd7-999b-2701c9382597">  
 
-11. La cantidad de CPU consumida es bastante grande y un conjunto considerable de peticiones concurrentes pueden hacer fallar nuestro servicio. Para solucionarlo usaremos una estrategia de Escalamiento Vertical. En Azure diríjase a la sección *size* y a continuación seleccione el tamaño `B2ms`.
+10. La cantidad de CPU consumida es bastante grande y un conjunto considerable de peticiones concurrentes pueden hacer fallar nuestro servicio. Para solucionarlo usaremos una estrategia de Escalamiento Vertical. En Azure diríjase a la sección *size* y a continuación seleccione el tamaño `B2ms`.
 
 ![Imágen 3](images/part1/part1-vm-resize.png)  
+Se realiza el escalamiento vertical de la VM:  
+<img width="906" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/5e493469-cfa9-4bb1-9144-8303c2c7b77b">  
 
 
+11. Una vez el cambio se vea reflejado, repita el paso 7, 8 y 9.  
+   Se repite el paso 7:  
+   A continuación, se muestran los tiempos de respuesta:  
+    * 1000000  
+      ![imagen](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/307cc1a0-ec57-4475-8a5a-2fecaeb603d8)  
 
-11. Una vez el cambio se vea reflejado, repita el paso 7, 8 y 9.
+    * 1010000  
+      <img width="1196" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/8e5924b7-7f97-491f-b0ea-752387f3e2da">  
+
+    * 1020000  
+      <img width="1200" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/0b35e12a-da30-41df-a60e-08e79ad32f30">  
+
+    * 1030000  
+      <img width="1196" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/afd3cd9c-126c-4717-8907-4c8f9502aaf6">  
+
+    * 1040000  
+      <img width="1200" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/f3975be3-9475-440a-9a43-bf52645bff56">  
+
+    * 1050000  
+       <img width="1198" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/adca9803-a08e-42cb-999c-4cd02dfa0bd4">  
+
+    * 1060000  
+        <img width="1197" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/5ad248dd-a795-44b7-bb5a-2ffadbb203d8">  
+
+    * 1070000  
+        <img width="1196" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/979b6721-c063-4629-a2fd-fbc960ad7299">  
+
+    * 1080000  
+        <img width="1197" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/d07e8f12-2d2c-474d-acc8-18904c655850">  
+
+    * 1090000  
+      <img width="1198" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/a9835743-b947-4177-aa22-96d2ffc243cd">  
+
+   Se repite el paso 8:  
+   Desde Azure, observamos el consumo de CPU de la máquina virtual en la última hora:  
+   <img width="1185" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/1927af2f-6b84-4740-892a-9b29041db2a2">  
+
+   Se repite el paso 9:  
+   Ejecutamos el comando para simular la carga concurrente al sistema, obteniendo los siguientes resultados:  
+   ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/0bde9757-015c-4069-9e79-82c940e83229)  
+   <img width="1440" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/73900d52-7b05-4551-8126-746bb1fcbde2">  
+   <img width="1439" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/c053a9b6-7089-4a7a-be5e-4582be4db7ec">  
+   <img width="559" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/bed083d2-5283-444c-a19f-319c4ca64635">  
+
+
 12. Evalue el escenario de calidad asociado al requerimiento no funcional de escalabilidad y concluya si usando este modelo de escalabilidad logramos cumplirlo.
+
+
 13. Vuelva a dejar la VM en el tamaño inicial para evitar cobros adicionales.
 
 **Preguntas**
