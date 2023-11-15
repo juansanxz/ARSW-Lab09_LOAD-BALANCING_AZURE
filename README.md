@@ -22,6 +22,7 @@ Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000)
     * __Size = Standard B1ls__
     * __Username = scalability_lab__
     * __SSH publi key = Su llave ssh publica__
+      
 
 ![Imágen 1](images/part1/part1-vm-basic-config.png)    
 
