@@ -235,23 +235,47 @@ Antes de continuar puede eliminar el grupo de recursos anterior para evitar gast
 
 1. El Balanceador de Carga es un recurso fundamental para habilitar la escalabilidad horizontal de nuestro sistema, por eso en este paso cree un balanceador de carga dentro de Azure tal cual como se muestra en la imágen adjunta.
 
-![](images/part2/part2-lb-create.png)
+![](images/part2/part2-lb-create.png)  
+Se crea el balanceador de cargas como se indica:  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/7103aecb-fd43-4ff5-a7e1-929a62f643b5)  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/084ffa66-715d-4f24-84ad-62a2f220ec57)  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/b389b5a9-ae79-48aa-9461-7a66dde8f01f)  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/6bdf2eca-ebc5-4f69-bb99-da4f798a7856)  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/86813e9d-329b-4ced-be10-34c4f762b262)  
+
+
 
 2. A continuación cree un *Backend Pool*, guiese con la siguiente imágen.
 
 ![](images/part2/part2-lb-bp-create.png)
+Crear el Backend Pool:  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/8c5d039d-4e68-4815-8840-5106ab8baedb)  
+
 
 3. A continuación cree un *Health Probe*, guiese con la siguiente imágen.
 
 ![](images/part2/part2-lb-hp-create.png)
+El Health Probe ahora se crea en el mismo instante de crear un Loas Balancing Rule:  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/b12421ea-23ee-45f0-ad67-0b716e681300)  
+
 
 4. A continuación cree un *Load Balancing Rule*, guiese con la siguiente imágen.
 
-![](images/part2/part2-lb-lbr-create.png)
+![](images/part2/part2-lb-lbr-create.png)  
+Se crea el Load Balancing Rule como se especificó:  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/cf2d7b77-7129-41f3-8dbf-e2366e3d78c1)  
+
 
 5. Cree una *Virtual Network* dentro del grupo de recursos, guiese con la siguiente imágen.
 
 ![](images/part2/part2-vn-create.png)
+Se empieza con la creación de la Virtual Network:  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/2931c9a2-92ce-464c-bbb6-f978d8ca2d28)
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/3cff2fa9-7d7d-4b5d-99e5-9a04252ff250)    
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/5ad1d0b7-368d-4087-a91b-748b407fba2e)  
+
+
+
 
 #### Crear las maquinas virtuales (Nodos)
 
