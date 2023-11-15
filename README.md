@@ -44,21 +44,21 @@ Se crea la máquina virtual con las características indicadas.
    Realizamos la descarga con el comando indicado.
    ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/08b2a2f4-0f74-439e-b10f-79229085e3fa)
 
-   Verificamos que se haya instalado, consultando la versión:
+   Verificamos que se haya instalado, consultando la versión:  
    ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/1321d55c-d685-4d5e-b129-84caa0787663)  
 
-   Finalmente, instalamos node:
+   Finalmente, instalamos node:  
    ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/a86af239-7381-4e6e-a184-d6116917d75a)  
 
    Verficamos la versión de node instalada:  
    ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/c33e4a1b-9570-49b7-a3a1-721b8544cd31)
 
-   Además. se instalan dos versiones de node:
-   ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/791efb61-ba03-43f4-ba69-cf8e52fde099)
-   ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/4b181169-1db2-470d-9d5c-31028c07fc90)
+   Además. se instalan dos versiones de node:  
+   ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/791efb61-ba03-43f4-ba69-cf8e52fde099)  
+   ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/4b181169-1db2-470d-9d5c-31028c07fc90)  
 
-   Listamos las versiones de Node.Js para ver cual versión está en uso:
-   ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/600131b2-37a4-446f-a8eb-c2ee43d81a1d)
+   Listamos las versiones de Node.Js para ver cual versión está en uso:  
+   ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/600131b2-37a4-446f-a8eb-c2ee43d81a1d)  
 
 4. __Para instalar la aplicación adjunta al Laboratorio, suba la carpeta `FibonacciApp` a un repositorio al cual tenga acceso y ejecute estos comandos dentro de la VM:__
 
