@@ -300,7 +300,12 @@ Ahora vamos a crear 3 VMs (VM1, VM2 y VM3) con direcciones IP públicas standar 
 
 4. Ahora asignaremos esta VM a nuestro balanceador de carga, para ello siga la configuración de la siguiente imágen.
 
-![](images/part2/part2-vm-create4.png)
+![](images/part2/part2-vm-create4.png)  
+Ya se tienen las 2 máquinas virtuales que nos permite crear con la suscripción de Student:  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/dfe1b7be-5145-4291-a9e6-8e0cadb7a4cc)  
+![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/13882c9b-c4de-4e75-b31b-7829e5c68ad3)  
+
+
 
 5. Finalmente debemos instalar la aplicación de Fibonacci en la VM. para ello puede ejecutar el conjunto de los siguientes comandos, cambiando el nombre de la VM por el correcto
 
