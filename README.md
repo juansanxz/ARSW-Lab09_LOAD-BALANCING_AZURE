@@ -10,7 +10,7 @@
 
 Adjunto a este laboratorio usted podrá encontrar una aplicación totalmente desarrollada que tiene como objetivo calcular el enésimo valor de la secuencia de Fibonnaci.
 
-**Escalabilidad**
+**Escalabilidad**  
 Cuando un conjunto de usuarios consulta un enésimo número (superior a 1000000) de la secuencia de Fibonacci de forma concurrente y el sistema se encuentra bajo condiciones normales de operación, todas las peticiones deben ser respondidas y el consumo de CPU del sistema no puede superar el 70%.
 
 ### Parte 1 - Escalabilidad vertical
@@ -125,17 +125,17 @@ Se prueba el funcinamiento usando el endpoint, hallando el fibonacci de 6:
       ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/a50ec213-1f23-4879-abab-a4af046693f6)  
    
 
-8. __Dírijase ahora a Azure y verifique el consumo de CPU para la VM. (Los resultados pueden tardar 5 minutos en aparecer).__
+8. __Dírijase ahora a Azure y verifique el consumo de CPU para la VM. (Los resultados pueden tardar 5 minutos en aparecer).__  
 
 ![Imágen 2](images/part1/part1-vm-cpu.png)  
 Desde Azure, observamos el consumo de CPU de la máquina virtual en la última hora:  
 ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/31729807-f705-45ee-9faa-842d0516acaa)
 
-9. Ahora usaremos Postman para simular una carga concurrente a nuestro sistema. Siga estos pasos.
-    * Instale newman con el comando `npm install newman -g`. Para conocer más de Newman consulte el siguiente [enlace](https://learning.getpostman.com/docs/postman/collection-runs/command-line-integration-with-newman/).
-    * Diríjase hasta la ruta `FibonacciApp/postman` en una maquina diferente a la VM.
-    * Para el archivo `[ARSW_LOAD-BALANCING_AZURE].postman_environment.json` cambie el valor del parámetro `VM1` para que coincida con la IP de su VM.
-    * Ejecute el siguiente comando.
+9. __Ahora usaremos Postman para simular una carga concurrente a nuestro sistema. Siga estos pasos.__
+    * __Instale newman con el comando `npm install newman -g`. Para conocer más de Newman consulte el siguiente [enlace](https://learning.getpostman.com/docs/postman/collection-runs/command-line-integration-with-newman/).__
+    * __Diríjase hasta la ruta `FibonacciApp/postman` en una maquina diferente a la VM.__
+    * __Para el archivo `[ARSW_LOAD-BALANCING_AZURE].postman_environment.json` cambie el valor del parámetro `VM1` para que coincida con la IP de su VM.__
+    * __Ejecute el siguiente comando.__  
 
     ```
     newman run ARSW_LOAD-BALANCING_AZURE.postman_collection.json -e [ARSW_LOAD-BALANCING_AZURE].postman_environment.json -n 10 &
@@ -154,14 +154,14 @@ Desde Azure, observamos el consumo de CPU de la máquina virtual en la última h
    <img width="1440" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/d55e2b5f-ba6b-4819-bbb9-c514eda7e5ae">
    <img width="618" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/93c4bab4-d33e-4fd7-999b-2701c9382597">  
 
-10. La cantidad de CPU consumida es bastante grande y un conjunto considerable de peticiones concurrentes pueden hacer fallar nuestro servicio. Para solucionarlo usaremos una estrategia de Escalamiento Vertical. En Azure diríjase a la sección *size* y a continuación seleccione el tamaño `B2ms`.
+10. __La cantidad de CPU consumida es bastante grande y un conjunto considerable de peticiones concurrentes pueden hacer fallar nuestro servicio. Para solucionarlo usaremos una estrategia de Escalamiento Vertical. En Azure diríjase a la sección *size* y a continuación seleccione el tamaño `B2ms`.__  
 
 ![Imágen 3](images/part1/part1-vm-resize.png)  
 Se realiza el escalamiento vertical de la VM:  
 <img width="906" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/5e493469-cfa9-4bb1-9144-8303c2c7b77b">  
 
 
-11. Una vez el cambio se vea reflejado, repita el paso 7, 8 y 9.  
+11. __Una vez el cambio se vea reflejado, repita el paso 7, 8 y 9.__    
    Se repite el paso 7:  
    A continuación, se muestran los tiempos de respuesta:  
     * 1000000  
@@ -196,7 +196,9 @@ Se realiza el escalamiento vertical de la VM:
 
    Se repite el paso 8:  
    Desde Azure, observamos el consumo de CPU de la máquina virtual en la última hora:  
-   <img width="1185" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/1927af2f-6b84-4740-892a-9b29041db2a2">  
+   <img width="1187" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/b232a797-2a7b-4325-81a6-a8c179f18c88">  
+   Al hacerse varias peticiones al tiempo, el consumo de CPU llegó a ser del 99% aproximadamente:  
+   <img width="1165" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/3b15655b-99bd-4fa4-8bb8-6e9edc7e0b02">  
 
    Se repite el paso 9:  
    Ejecutamos el comando para simular la carga concurrente al sistema, obteniendo los siguientes resultados:  
@@ -206,10 +208,13 @@ Se realiza el escalamiento vertical de la VM:
    <img width="559" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/bed083d2-5283-444c-a19f-319c4ca64635">  
 
 
-12. Evalue el escenario de calidad asociado al requerimiento no funcional de escalabilidad y concluya si usando este modelo de escalabilidad logramos cumplirlo.
+12. __Evalue el escenario de calidad asociado al requerimiento no funcional de escalabilidad y concluya si usando este modelo de escalabilidad logramos cumplirlo.__    
+   Usando este modelo de escalabilidad vertical, no se logra cumplir satisfactoriamente el escenario de calidad del requerimiento no funcional de escalabilidad. Como se evidencia en las imagenes anteriores, especificamente al repetir el punto 7; se observa que el tiempo que toma la aplicación en obtener el enésimo valor de la secuencia de Fibonnaci es mayor al 70% indicado en el escenario de calidad (cerca del 99%), e incluso mayor a la prueba realizada antes de aumentar los recursos de la máquina virtual. 
+   
+13. __Vuelva a dejar la VM en el tamaño inicial para evitar cobros adicionales.__
+    Se deja la VM con el tamaño inicial.  
+    <img width="890" alt="image" src="https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812331/5f10628a-0f85-4ef9-b389-a486ed527bcc">  
 
-
-13. Vuelva a dejar la VM en el tamaño inicial para evitar cobros adicionales.
 
 **Preguntas**
 
