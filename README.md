@@ -463,7 +463,7 @@ En aplicaciones web que almacenan información en el lado del servidor, las sesi
 * __¿Cuál es el propósito del *Network Security Group*?__  
   Es un recurso en Azure que actúa como un firewall virtual para controlar el tráfico de red hacia y desde los recursos dentro de una red virtual. Su propósito principal es proporcionar una capa de seguridad a nivel de red, permitiendo o denegando el tráfico según las reglas de seguridad que se definan.  
 * __Informe de newman 1 (Punto 2)__  
-   El informe se encuentra previamente en la sección donde se pedí haacer las pruebas.  
+   El informe se encuentra previamente en la sección donde se pedía hacer las pruebas.  
 * __Presente el Diagrama de Despliegue de la solución.__  
   ![image](https://github.com/juansanxz/ARSW-Lab09_LOAD-BALANCING_AZURE/assets/123812766/3f36303c-db7e-41c9-b670-7c4d0f3856d8)   
 
